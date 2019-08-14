@@ -31,16 +31,13 @@ $(STARTER_HOME):
 chart: $(STARTER_HOME)
 	@helm create --starter=$(STARTER) $(FILTERED_NAME)
 	@mv $(FILTERED_NAME) chart
-	@find chart -type f -exec sed "s/__NAME__/$(NAME)/g" {} --in-place \;
-	@find chart -type f -exec sed "s/__PORT__/$(PORT)/g" {} --in-place \;
-	@find chart -type f -exec sed "s/__NAMESPACE__/$(NAMESPACE)/g" {} --in-place \;
-	@find chart -type f -exec sed "s/__FILTERED_NAME__/$(FILTERED_NAME)/g" {} --in-place \;
+	@sed --in-place "s/__PORT__/$(PORT)/g" chart/values.yaml 
 
 Dockerfile: chart/.ci/Dockerfile
-	cp $< $@
+	cat $< | envsubst > $@
 
 .travis.yml: chart/.ci/.travis.yml
-	cp $< $@
+	cat $< | envsubst > $@
 
 #
 # Clean targets

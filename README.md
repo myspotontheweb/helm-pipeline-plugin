@@ -2,17 +2,23 @@
 
 Helm plugin designed to generate the files required for CI/CD
 
+# Software Dependencies
+
+On Ubuntu
+
+```
+sudo apt-get install -y make git gettext-base
+```
+
+On Mac
+
+```
+brew install make git gettext
+```
+
 # Installation
 
 ```
-#
-# Install additional software (Substitute appropriate OS commands)
-#
-sudo apt-get install -y make git
-
-#
-# Install plugin
-#
 helm plugin install https://github.com/myspotontheweb/helm-pipeline-plugin.git
 ```
 
