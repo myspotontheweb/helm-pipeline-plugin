@@ -55,23 +55,3 @@ helm pipeline generate NAME=my-project STARTER=go
 Each starter pack is maintained in it's own repository. The following are currently supported:
 
 * [myspotontheweb/helm-go-starter](https://github.com/myspotontheweb/helm-go-starter) (This is the default)
-
-### Specifying your own starter packs
-
-Use the ORG variable to specify an alternative github organisation
-
-helm pipeline generate NAME=my-project ORG=myorganization STARTER=go
-
-This will use a repo called:
-
-* myorganization/helm-go-starter
-
-### Cleanup old starter packs
-
-Starter packs are locally cached and can be cleaned as follows:
-
-```
-helm pipeline clean-starter STARTER=go
-helm pipeline clean-starter STARTER=node
-..
-```
