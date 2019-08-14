@@ -34,10 +34,10 @@ chart: $(STARTER_HOME)
 	@sed --in-place "s/<PORT>/$(PORT)/g" chart/values.yaml
 
 Dockerfile: chart/.ci/Dockerfile
-	cat $< | envsubst > $@
+	cat $< | envsubst '$NAME,$FILTERED_NAME,$NAMESPACE,$PORT' > $@
 
 .travis.yml: chart/.ci/.travis.yml
-	cat $< | envsubst > $@
+	cat $< | envsubst '$NAME,$FILTERED_NAME,$NAMESPACE,$PORT' > $@
 
 #
 # Clean targets
