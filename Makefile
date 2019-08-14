@@ -11,6 +11,8 @@ ORG=myspotontheweb
 STARTER_URL=$(GIT_PROTO):$(ORG)/helm-$(STARTER)-starter.git
 STARTER_HOME=$(HELM_HOME)/starters/$(STARTER)
 
+.EXPORT_ALL_VARIABLES:
+
 #
 # Command targets (not dependent on files)
 #
@@ -34,10 +36,10 @@ chart: $(STARTER_HOME)
 	@sed --in-place "s/<PORT>/$(PORT)/g" chart/values.yaml
 
 Dockerfile: chart/.ci/Dockerfile
-	cat $< | envsubst '$NAME,$FILTERED_NAME,$NAMESPACE,$PORT' > $@
+	cat $< | envsubst '$$NAME $$FILTERED_NAME $$NAMESPACE $$PORT' > $@
 
 .travis.yml: chart/.ci/.travis.yml
-	cat $< | envsubst '$NAME,$FILTERED_NAME,$NAMESPACE,$PORT' > $@
+	cat $< | envsubst '$$NAME $$FILTERED_NAME $$NAMESPACE $$PORT' > $@
 
 #
 # Clean targets
