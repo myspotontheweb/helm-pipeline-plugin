@@ -31,7 +31,7 @@ $(STARTER_HOME):
 chart: $(STARTER_HOME)
 	@helm create --starter=$(STARTER) $(FILTERED_NAME)
 	@mv $(FILTERED_NAME) chart
-	@sed --in-place "s/__PORT__/$(PORT)/g" chart/values.yaml 
+	@sed --in-place "s/<PORT>/$(PORT)/g" chart/values.yaml
 
 Dockerfile: chart/.ci/Dockerfile
 	cat $< | envsubst > $@
