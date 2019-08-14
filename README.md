@@ -16,7 +16,7 @@ sudo apt-get install -y make git
 helm plugin install https://github.com/myspotontheweb/helm-pipeline-plugin.git
 ```
 
-or to update an exiting installation
+or to update an existing installation
 
 ```
 helm plugin update pipeline
