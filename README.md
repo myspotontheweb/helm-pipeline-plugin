@@ -56,6 +56,24 @@ The plugin uses [helm starter packs](https://helm.sh/docs/developing_charts/#cha
 helm pipeline generate NAME=my-project NAMESPACE=myteam PORT=9001 STARTER=go ORG=myspotontheweb
 ```
 
-Each starter pack is maintained in it's own repository. The following are currently supported:
+Each starter pack is maintained in it's own repository. The following are currently supported by the author:
 
-* [myspotontheweb/helm-go-starter](https://github.com/myspotontheweb/helm-go-starter) (This is the default)
+* [myspotontheweb/helm-go-starter](https://github.com/myspotontheweb/helm-go-starter) 
+
+## Starter pack structure
+
+A starter pack is expected to contain the normal files associated with a helm chart plus
+an additional directory container files used for building and deployment
+
+```
+├── charts
+├── Chart.yaml
+├── README.md
+├── templates
+│   ├── ..
+│   └── ..
+├── values.yaml
+└── .ci
+    ├── Dockerfile
+    └── .travis.yml
+```

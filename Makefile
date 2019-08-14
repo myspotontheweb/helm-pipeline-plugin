@@ -36,10 +36,10 @@ chart: $(STARTER_HOME)
 	@find chart -type f -exec sed "s/__NAMESPACE__/$(NAMESPACE)/g" {} --in-place \;
 	@find chart -type f -exec sed "s/__FILTERED_NAME__/$(FILTERED_NAME)/g" {} --in-place \;
 
-Dockerfile: chart/extras/Dockerfile
+Dockerfile: chart/.ci/Dockerfile
 	cp $< $@
 
-.travis.yml: chart/extras/.travis.yml
+.travis.yml: chart/.ci/.travis.yml
 	cp $< $@
 
 #
