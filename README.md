@@ -6,7 +6,7 @@ Helm plugin designed to generate the files required for CI/CD
 
 ```
 #
-# Install additional software (Subsitute appropriate OS commands)
+# Install additional software (Substitute appropriate OS commands)
 #
 sudo apt-get install -y make git
 
