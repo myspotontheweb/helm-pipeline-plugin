@@ -3,7 +3,7 @@
 #
 NAME=$(shell basename $(PWD))
 FILTERED_NAME=$(shell echo $(NAME) | tr -d '-')
-STARTER=go
+STARTER=default
 PORT=8080
 NAMESPACE=default
 GIT_PROTO=git@github.com

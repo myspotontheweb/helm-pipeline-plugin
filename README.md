@@ -46,7 +46,7 @@ rm -rf chart
 rm -f Dockerfile
 rm -f .travis.yml
 
-$ helm pipeline NAME=my-project NAMESPACE=myteam PORT=9001 STARTER=go ORG=Teamwork
+$ helm pipeline NAME=my-project NAMESPACE=myteam PORT=9001 STARTER=default ORG=Teamwork
 Creating myproject
 cat chart/.ci/Dockerfile | envsubst '$NAME $FILTERED_NAME $NAMESPACE $PORT' > Dockerfile
 cat chart/.ci/.travis.yml | envsubst '$NAME $FILTERED_NAME $NAMESPACE $PORT' > .travis.yml
@@ -57,8 +57,8 @@ cat chart/.ci/.travis.yml | envsubst '$NAME $FILTERED_NAME $NAMESPACE $PORT' > .
 Helm chart starter packs are stored under the helm client homedir: ~/.helm/starters
 
 ```
-$ helm pipeline clean-starter STARTER=go
-rm -rf /home/mark/.helm/starters/go
+$ helm pipeline clean-starter STARTER=default
+rm -rf /home/mark/.helm/starters/default
 ```
 
 # Starter packs
@@ -68,12 +68,12 @@ The plugin uses [helm starter packs](https://helm.sh/docs/developing_charts/#cha
 To customize the file generation you can optionally specify the ORG and STARTER settings: 
 
 ```
-helm pipeline NAME=my-project NAMESPACE=myteam PORT=9001 ORG=myspotontheweb STARTER=go
+helm pipeline NAME=my-project NAMESPACE=myteam PORT=9001 ORG=myspotontheweb STARTER=default
 ```
 
 This will tell the plugin to download the default starter pack located here: 
 
-* [myspotontheweb/helm-go-starter](https://github.com/myspotontheweb/helm-go-starter) 
+* [myspotontheweb/helm-default-starter](https://github.com/myspotontheweb/helm-default-starter) 
 
 ## Starter pack structure
 

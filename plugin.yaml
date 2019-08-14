@@ -1,5 +1,5 @@
 name: "pipeline"
-version: "0.0.6"
+version: "0.0.7"
 usage: "helm pipeline generate"
 description: |-
   Helm plugin designed to generate the files required for CI/CD
