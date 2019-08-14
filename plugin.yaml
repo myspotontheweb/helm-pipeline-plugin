@@ -1,8 +1,8 @@
 name: "pipeline"
-version: "0.1.6"
-usage: "Helm plugin designed to generate the files required for CI/CD"
+version: "0.1.0"
+usage: "helm pipeline generate"
 description: |-
-  This plugin is under development
+  Helm plugin designed to generate the files required for CI/CD
 ignoreFlags: false
 useTunnel: false
 command: "make -f $HELM_PLUGIN_DIR/Makefile"
