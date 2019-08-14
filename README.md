@@ -33,23 +33,27 @@ helm pipeline generate
 Can optionally supply an alternative name and container port number for the container
 
 ```
-helm pipeline generate NAME=my-project PORT=9001 NAMESPACE=desk
+helm pipeline generate NAME=my-project NAMESPACE=myteam PORT=9001
 ```
 
-## Regenerate
+## Cleanup
 
-To regenerate all the files
+Remove all generated files:
 
 ```
-helm pipeline clean generate NAME=my-project
+$ helm pipeline clean-all
+rm -rf chart
+rm -f Dockerfile
+rm -f .travis.yml
+rm -rf /home/mark/.helm/starters/go
 ```
 
-## Starter packs
+# Starter packs
 
 The plugin uses [helm starter packs](https://helm.sh/docs/developing_charts/#chart-starter-packs) to customize the build and deployment for each technology area.
 
 ```
-helm pipeline generate NAME=my-project STARTER=go
+helm pipeline generate NAME=my-project NAMESPACE=myteam PORT=9001 STARTER=go ORG=myspotontheweb
 ```
 
 Each starter pack is maintained in it's own repository. The following are currently supported:
