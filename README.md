@@ -33,24 +33,31 @@ helm plugin update pipeline
 To generate the project files run the plugin as follows
 
 ```
-helm pipeline generate
+helm pipeline NAME=my-project NAMESPACE=myteam PORT=9001
 ```
 
-Can optionally supply an alternative name and container port number for the container
+## Recreating files
+
+You can regenerate the files by first deleting them
 
 ```
-helm pipeline generate NAME=my-project NAMESPACE=myteam PORT=9001
-```
-
-## Cleanup
-
-Remove all generated files:
-
-```
-$ helm pipeline clean-all
+$ helm pipeline clean
 rm -rf chart
 rm -f Dockerfile
 rm -f .travis.yml
+
+$ helm pipeline NAME=my-project NAMESPACE=myteam PORT=9001 STARTER=go ORG=Teamwork
+Creating myproject
+cat chart/.ci/Dockerfile | envsubst '$NAME $FILTERED_NAME $NAMESPACE $PORT' > Dockerfile
+cat chart/.ci/.travis.yml | envsubst '$NAME $FILTERED_NAME $NAMESPACE $PORT' > .travis.yml
+```
+
+## Remove caching
+
+Helm chart starter packs are stored under the helm client homedir: ~/.helm/starters
+
+```
+$ helm pipeline clean-starter STARTER=go
 rm -rf /home/mark/.helm/starters/go
 ```
 
