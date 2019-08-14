@@ -65,11 +65,13 @@ rm -rf /home/mark/.helm/starters/go
 
 The plugin uses [helm starter packs](https://helm.sh/docs/developing_charts/#chart-starter-packs) to customize the build and deployment for each technology area.
 
+To customize the file generation you can optionally specify the ORG and STARTER settings: 
+
 ```
-helm pipeline generate NAME=my-project NAMESPACE=myteam PORT=9001 STARTER=go ORG=myspotontheweb
+helm pipeline NAME=my-project NAMESPACE=myteam PORT=9001 ORG=myspotontheweb STARTER=go
 ```
 
-Each starter pack is maintained in it's own repository. The following are currently supported by the author:
+This will tell the plugin to download the default starter pack located here: 
 
 * [myspotontheweb/helm-go-starter](https://github.com/myspotontheweb/helm-go-starter) 
 
