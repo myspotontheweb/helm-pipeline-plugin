@@ -46,7 +46,7 @@ rm -rf chart
 rm -f Dockerfile
 rm -f .travis.yml
 
-$ helm pipeline NAME=my-project NAMESPACE=myteam PORT=9001 STARTER=default ORG=Teamwork
+$ helm pipeline NAME=my-project NAMESPACE=myteam PORT=9001 ORG=myspotontheweb STARTER=default
 Creating myproject
 cat chart/.ci/Dockerfile | envsubst '$NAME $FILTERED_NAME $NAMESPACE $PORT' > Dockerfile
 cat chart/.ci/.travis.yml | envsubst '$NAME $FILTERED_NAME $NAMESPACE $PORT' > .travis.yml
