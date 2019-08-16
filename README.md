@@ -1,4 +1,4 @@
-# helm-pipeline-plugin
+# helm-starter-plugin
 
 Helm plugin designed to generate the files required for CI/CD
 
@@ -19,13 +19,13 @@ brew install make git gettext
 # Installation
 
 ```
-helm plugin install https://github.com/myspotontheweb/helm-pipeline-plugin.git
+helm plugin install https://github.com/myspotontheweb/helm-starter-plugin.git
 ```
 
 or to update an existing installation
 
 ```
-helm plugin update pipeline
+helm plugin update starter
 ```
 
 # Usage
@@ -33,7 +33,7 @@ helm plugin update pipeline
 To generate the project files run the plugin as follows
 
 ```
-helm pipeline NAME=my-project NAMESPACE=myteam PORT=9001
+helm starter NAME=my-project NAMESPACE=myteam PORT=9001
 ```
 
 ## Recreating files
@@ -41,12 +41,12 @@ helm pipeline NAME=my-project NAMESPACE=myteam PORT=9001
 You can regenerate the files by first deleting them
 
 ```
-$ helm pipeline clean
+$ helm starter clean
 rm -rf chart
 rm -f Dockerfile
 rm -f .travis.yml
 
-$ helm pipeline NAME=my-project NAMESPACE=myteam PORT=9001 ORG=myspotontheweb STARTER=default
+$ helm starter NAME=my-project NAMESPACE=myteam PORT=9001 ORG=myspotontheweb STARTER=default
 Creating myproject
 cat chart/.ci/Dockerfile | envsubst '$NAME $FILTERED_NAME $NAMESPACE $PORT' > Dockerfile
 cat chart/.ci/.travis.yml | envsubst '$NAME $FILTERED_NAME $NAMESPACE $PORT' > .travis.yml
@@ -57,7 +57,7 @@ cat chart/.ci/.travis.yml | envsubst '$NAME $FILTERED_NAME $NAMESPACE $PORT' > .
 Helm chart starter packs are stored under the helm client homedir: ~/.helm/starters
 
 ```
-$ helm pipeline clean-starter STARTER=default
+$ helm starter clean-starter STARTER=default
 rm -rf /home/mark/.helm/starters/default
 ```
 
@@ -68,7 +68,7 @@ The plugin uses [helm starter packs](https://helm.sh/docs/developing_charts/#cha
 To customize the file generation you can optionally specify the ORG and STARTER settings: 
 
 ```
-helm pipeline NAME=my-project NAMESPACE=myteam PORT=9001 ORG=myspotontheweb STARTER=default
+helm starter NAME=my-project NAMESPACE=myteam PORT=9001 ORG=myspotontheweb STARTER=default
 ```
 
 This will tell the plugin to download the default starter pack located here: 
