@@ -1,6 +1,6 @@
-name: "pipeline"
-version: "0.0.7"
-usage: "helm pipeline generate"
+name: "starter"
+version: "0.0.8"
+usage: "helm starter generate"
 description: |-
   Helm plugin designed to generate the files required for CI/CD
 ignoreFlags: false
