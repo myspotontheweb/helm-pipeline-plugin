@@ -3,12 +3,12 @@
 #
 NAME=$(shell basename $(PWD))
 FILTERED_NAME=$(shell echo $(NAME) | tr -d '-')
-STARTER=default
 PORT=8080
 NAMESPACE=default
-GIT_PROTO=git@github.com
-ORG=myspotontheweb
-STARTER_URL=$(GIT_PROTO):$(ORG)/helm-$(STARTER)-starter.git
+GIT_PROTO?=git@github.com:
+ORG?=myspotontheweb
+STARTER?=default
+STARTER_URL=$(GIT_PROTO)$(ORG)/helm-$(STARTER)-starter.git
 STARTER_HOME=$(HELM_HOME)/starters/$(STARTER)
 
 .EXPORT_ALL_VARIABLES:

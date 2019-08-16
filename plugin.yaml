@@ -1,5 +1,5 @@
 name: "starter"
-version: "0.0.8"
+version: "0.0.9"
 usage: "helm starter generate"
 description: |-
   Helm plugin designed to generate the files required for CI/CD

@@ -30,10 +30,13 @@ helm plugin update starter
 
 # Usage
 
-To generate the project files run the plugin as follows
+The default starter repo is [myspotontheweb/helm-default-starter](https://github.com/myspotontheweb/helm-default-starter) and available without authentication 
+when using the https protocol.
 
 ```
-helm starter NAME=my-project NAMESPACE=myteam PORT=9001
+export GIT_PROTO=https://github.com/
+
+helm starter NAME=my-project NAMESPACE=myteam PORT=9001 
 ```
 
 ## Recreating files
